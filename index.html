@@ -1,16 +1,91 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Chris is here</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-    <script src="main.js"></script>
+	<meta charset="utf-8" />
+	<title>Sorting</title>
+	<script>
+		function ascend() {
+			var num = new Array();
+			var smol = 0;
+			var index = 0;
+			var k = 0;
+			var j = 0;
+			var count = 0;
+			var temp = 0;
+			num.push(22);
+			num.push(55);
+			num.push(43);
+			num.push(76);
+			num.push(39);
+			count = num.length;
+			for (k = 0; k < (count - 1); k++) {
+				smol = num[k];
+				index = k;
+				for (j = (k + 1); j <= (count - 1); j++) {
+					if (num[j] < smol) {
+						smol = num[j];
+						index = j;
+					}
+				}
+				if (k != index) {
+					temp = num[k];
+					num[k] = smol;
+					num[index] = temp;
+				}
+			}
+			document.write("Numbers sorted from Smallest to Largest are/is: <br />");
+			for (k = 0; k < count; k++) {
+				document.write(num[k] + "<br />");
+			}
+		}
+
+		function descend() {
+			var num = new Array();
+			var big = 0;
+			var index = 0;
+			var k = 0;
+			var j = 0;
+			var count = 0;
+			var temp = 0;
+			num.push(22);
+			num.push(55);
+			num.push(43);
+			num.push(76);
+			num.push(39);
+			count = num.length;
+			for (k = 0; k < (count - 1); k++) {
+				big = num[k];
+				index = k;
+				for (j = (k + 1); j <= (count - 1); j++) {
+					if (num[j] > big) {
+						big = num[j];
+						index = j;
+					}
+				}
+				if (k != index) {
+					temp = num[k];
+					num[k] = big;
+					num[index] = temp;
+				}
+			}
+			document.write("The sorted to Largest to smallest is/are:  <br />");
+			for (k = 0; k < count; k++) {
+				document.write(num[k] + "<br />")
+			}
+		}
+	</script>
 </head>
 <body>
-    <H1>
-        Hello GiHub
-    </H1>
+	<h1>Ascending Sort</h1>
+	<h3>Least to Greatest</h3>
+	<p>
+		<input type="button" id="maxbtn" value="Ascend" onclick="ascend()" />
+	</p>
+
+	<h1>Descending Sort</h1>
+	<h3>Greatest to least</h3>
+	<p>
+		<input type="button" id="minbtn" value="Descend" onclick="descend()" />
+	</p>
 </body>
 </html>
